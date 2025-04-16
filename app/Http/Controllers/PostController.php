@@ -14,7 +14,9 @@ class PostController extends Controller
 
         $validated = $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'designation' => 'required',
+            'mobile' => 'nullable',
+            'email' => 'nullable',
             'image' => 'nullable|mimes:png,jpg,pdf',
         ]);
         
@@ -30,7 +32,9 @@ class PostController extends Controller
         $post= new Post;
 
         $post->name=$request->name;
-        $post->description=$request->description;
+        $post->designation=$request->designation;
+        $post->mobile=$request->mobile;
+        $post->email=$request->email;
         $post->image=$imageName;
 
         $post->save();
@@ -47,7 +51,9 @@ class PostController extends Controller
 
         $validated = $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'designation' => 'required',
+            'mobile' => 'nullable',
+            'email' => 'nullable',
             'image' => 'nullable|mimes:png,jpg,pdf',
         ]);
         
@@ -57,7 +63,9 @@ class PostController extends Controller
      //updata data
         $post=Post::findOrFail($id);
         $post->name=$request->name;
-        $post->description=$request->description;
+        $post->designation=$request->designation;
+        $post->mobile=$request->mobile;
+        $post->email=$request->email;
         if(isset($request->image)){
             $imageName=time().'.'.$request->image->extension();
             $request->image->move(public_path('images'),$imageName);
@@ -87,7 +95,9 @@ class PostController extends Controller
     $results = [];
     if ($query) {
         $results = Post::where('name', 'like', '%' . $query . '%')
-                       ->orWhere('description', 'like', '%' . $query . '%')
+                       ->orWhere('designation', 'like', '%' . $query . '%')
+                       ->orWhere('mobile', 'like', '%' . $query . '%')
+                       ->orWhere('email', 'like', '%' . $query . '%')
                        ->get();
     }
 

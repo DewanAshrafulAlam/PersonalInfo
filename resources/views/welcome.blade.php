@@ -16,7 +16,7 @@
         }
       </style>
       
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
     <div class="container">
@@ -52,6 +52,8 @@
                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Id</th>
                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Name</th>
                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Designation</th>
+                        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Mobile</th>
+                        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Email</th>
                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Image</th>
                         <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-white uppercase">Action</th>
                       </tr>
@@ -62,7 +64,9 @@
                           <tr class="odd:bg-white even:bg-gray-100">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ $post->id }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $post->name }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $post->description}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $post->designation}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $post->mobile}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $post->email}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><img src="images/{{ $post->image}}" width="80px" alt=""></td>
                             <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                               <a href="{{ route('edit',$post->id) }}" class="btn">Edit</a>

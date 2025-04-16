@@ -13,7 +13,7 @@
         }
       </style>
       
-    <title>Document</title>
+    <title>EDIT</title>
 </head>
 <body>
     <div class="container">
@@ -30,10 +30,20 @@
              @error('name')
                <p class="text-red-600">{{ $message }}</p>
              @enderror
-             <label for="">Description</label>
-             <input type="text" name="description" value="{{ $ourPost->description}}"></input>
-             @error('description')
+             <label for="">Designation</label>
+             <input type="text" name="designation" value="{{ $ourPost->designation}}"></input>
+             @error('designation')
              <p class="text-red-600">{{ $message }}</p>
+             @enderror
+             <label for="">Mobile</label>
+             <input type="text" name="mobile" value="{{$ourPost->mobile}}"></input>
+             @error('mobile')
+               <p class="text-red-600">{{ $message }}</p>
+             @enderror
+             <label for="">Email</label>
+             <input type="text" name="email" value="{{$ourPost->email}}"></input>
+             @error('email')
+               <p class="text-red-600">{{ $message }}</p>
              @enderror
              <label for="">Select image</label>
              <input type="file" name="image" id=""></input>

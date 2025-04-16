@@ -60,7 +60,9 @@
         <tr>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Designation</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Mobile</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Image</th>
         </tr>
     </thead>
@@ -69,7 +71,9 @@
             <tr class="odd:bg-white even:bg-gray-100">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ $result->id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $result->name  }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $result->description }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $result->designation }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $result->mobile }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $result->email }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     <img src="{{ asset('images/' . $result->image) }}" width="80px" alt="">
                 </td>
