@@ -19,7 +19,7 @@
     <div class="container">
         <div class="flex justify-between my-5">
         <h2 class="text-red-500 text-xl">Create</h2>
-         <a href="/" class="bg-green-600 text-white rounded py-2 py-4">Back to Home</a>
+         <a href="/home" class="bg-green-600 text-white rounded py-2 px-4">Back to Home</a>
         </div>
         <div>
           <form method="POST" action="{{route('store')}}" enctype="multipart/form-data">

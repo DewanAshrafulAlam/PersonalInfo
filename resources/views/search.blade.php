@@ -43,8 +43,13 @@
 </form>
 
 <!-- Show Search Results if there's a query -->
-@if(isset($query))
+  @if(isset($query))
     <h2 class="text-xl font-semibold mb-4">Results for "{{ $query }}"</h2>
+    <a href="{{ route('download.pdf', ['query' => $query]) }}" 
+        class="btn inline-block mb-4">
+         Download PDF
+     </a>
+     
 
     <ul class="space-y-2 mb-6">
         @forelse ($results as $result)
@@ -53,7 +58,7 @@
             <li>No results found.</li>
         @endforelse
     </ul>
-@endif
+   @endif
 
 <table class="min-w-full divide-y divide-gray-200">
     <thead class="bg-gray-50">
@@ -77,6 +82,7 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     <img src="{{ asset('images/' . $result->image) }}" width="80px" alt="">
                 </td>
+                
             </tr>
         @endforeach
     </tbody>

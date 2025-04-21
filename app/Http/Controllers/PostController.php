@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PostController extends Controller
 {
+
     public function create(){
         return view('create');
     }
@@ -100,9 +102,24 @@ class PostController extends Controller
                        ->orWhere('email', 'like', '%' . $query . '%')
                        ->get();
     }
-
+   
     return view('search', compact( 'results', 'query'));
 
 
      }
+   public function downloadPDF(Request $request)
+   {
+    $query = $request->input('query');
+
+    $results = Post::where('name', 'like', '%' . $query . '%')
+        ->orWhere('designation', 'like', '%' . $query . '%')
+        ->orWhere('mobile', 'like', '%' . $query . '%')
+        ->orWhere('email', 'like', '%' . $query . '%')
+        ->get();
+
+    $pdf = Pdf::loadView('pdf.search_results', compact('results', 'query'));
+    return $pdf->download('search_results.pdf');
+}
+
+      
 }

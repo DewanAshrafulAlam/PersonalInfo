@@ -23,6 +23,18 @@
         <div class="flex justify-between my-5">
         <h2 class="text-red-500 text-xl">Home</h2>
          <a href="/create" class="btn">Add New</a>
+
+         @if(isset($query))
+         <a href="{{ route('download.pdf', ['query' => $query]) }}"
+         class="btn mb-4 inline-block">
+          Download PDF
+         </a>
+         @endif
+
+         <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button type="submit" class="btn bg-red-600 hover:bg-red-700">Logout</button>
+      </form>
         </div>
         <div class="w-full max-w-sm min-w-[200px]">
           <form method="GET" action="{{ route('search') }}" class="flex items-center space-x-2">
